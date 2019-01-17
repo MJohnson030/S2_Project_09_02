@@ -7,8 +7,8 @@
       Case Problem 2
 
       Spice Bowl Payment Form
-      Author: 
-      Date:   
+      Author: Millione Johnson
+      Date: 1/16/19  
 
       Filename:   sb_payment.html
 
@@ -19,11 +19,18 @@
    <title>Spice Bowl Payment Form</title>
    <link href="sb_reset.css" rel="stylesheet" />
    <link href="sb_styles.css" rel="stylesheet" />
+   <link rel="stylesheet" href="sb_forms.css" />
+   <link rel="stylesheet" href="sb_validate.css" />
+   <script src="sb_script.js" />
 </head>
 
 <body>
    <header>
       <img src="sb_logo.png" alt="The Spice Bowl" />
+
+      <form action="http://www.example.com/sb/login" id="login" method="POST">
+        <input name="username" id="userbox" placeholder="username" type="text" />
+        <input name="password" id="pwdbox" placeholder="password" type="text" />
 
       <nav> <a id="navicon" href="#"><img src="sb_navicon.png" alt="" /></a>
          <ul>
@@ -38,6 +45,52 @@
    
    <section>
       <h1>Payment Form</h1>
+
+      <form action="http://www.example.com/sb/payment" id="payment" method="POST">
+
+        <fieldset id="billing">
+            <legend>Billing Information(required)</legend>
+
+            
+            <div>
+                    <label for="firsBox">First Name*</label>
+                    <input name="fName" id="firstBox" type="text" required/>
+                           
+          
+               <div>
+                    <label for="lastBox">Last Name*</label>
+                    <input name="lName" id="lastBox" type="text" required/>
+              </div>
+          
+              <div>
+                    <label for="streetBox">Street Address*</label>
+                    <input name="street" id="streetBox" type="text" required/>
+             </div>
+          
+             <div>
+                    <label for="streetBox2">Street Address (2)</label>
+                    <input name="street2" id="streetBox2" type="text" />
+            </div>
+          
+            <div>
+                 <label for="cityBox">City</label>
+                 <input name="city" id="cityBox" type="text" required/>
+           </div>
+          
+           <div>
+                <label for="zipBox">ZIP/Postal Code</label>
+                <input name="zip" id="zipBox" type="text" />
+           </div>
+
+           <div>
+                <label for="zipBox">Country</label>
+                <input name="zip" id="countryBox" type="text" />
+           </div>
+                
+            
+        </fieldset>
+
+    </form>
       
       <aside>
          <h1>Menu Ideas</h1>
