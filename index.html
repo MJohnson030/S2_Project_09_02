@@ -21,16 +21,17 @@
    <link href="sb_styles.css" rel="stylesheet" />
    <link rel="stylesheet" href="sb_forms.css" />
    <link rel="stylesheet" href="sb_validate.css" />
-   <script src="sb_script.js" />
+   <script src="sb_script.js"></script>
 </head>
 
 <body>
    <header>
     <img src="sb_logo.png" alt="The Spice Bowl" />
 
-      <form action="http://www.example.com/sb/login" id="login" method="POST">
+      <form action="http://www.example.com/sb/login" id="login" method="POST" />
         <input name="username" id="userbox" placeholder="username" type="text" />
         <input name="password" id="pwdbox" placeholder="password" type="text" />
+      </form>
 
       <nav> <a id="navicon" href="#"><img src="sb_navicon.png" alt="" /></a>
          <ul>
@@ -76,80 +77,134 @@
                  <label for="cityBox">City</label>
                  <input name="city" id="cityBox" type="text" required/>
            </div>
-   .       
+
+           <div>
+            <label for="stateBox">State</label>
+            <input name="state" id="stateBox" type="text" list="stateList" required/>
+            <datalist id="stateList">
+              <option value="AL"></option>
+              <option value="AK"></option>
+              <option value="AZ"></option>
+              <option value="AR"></option>
+              <option value="CA"></option>
+              <option value="CO"></option>
+              <option value="CT"></option>
+              <option value="DE"></option>
+              <option value="FL"></option>
+              <option value="GA"></option>
+              <option value="HI"></option>
+              <option value="ID"></option>
+              <option value="IL"></option>
+              <option value="IN"></option>
+              <option value="IA"></option>
+              <option value="KS"></option>
+              <option value="KY"></option>
+              <option value="LA"></option>
+              <option value="ME"></option>
+              <option value="MD"></option>
+              <option value="MA"></option>
+              <option value="MI"></option>
+              <option value="MN"></option>
+              <option value="MS"></option>
+              <option value="MO"></option>
+              <option value="MT"></option>
+              <option value="NE"></option>
+              <option value="NV"></option>
+              <option value="NH"></option>
+              <option value="NJ"></option>
+              <option value="NM"></option>
+              <option value="NY"></option>
+              <option value="NC"></option>
+              <option value="ND"></option>
+              <option value="OH"></option>
+              <option value="OK"></option>
+              <option value="OR"></option>
+              <option value="PA"></option>
+              <option value="RI"></option>
+              <option value="SC"></option>
+              <option value="SD"></option>
+              <option value="TN"></option>
+              <option value="TX"></option>
+              <option value="UT"></option>
+              <option value="VT"></option>
+              <option value="VA"></option>
+              <option value="WA"></option>
+              <option value="WV"></option>
+              <option value="WI"></option>
+              <option value="WY"></option>
+            </datalist>
+           </div>
+
            <div>
                 <label for="zipBox">ZIP/Postal Code</label>
-                <input name="zip" id="zipBox" type="text" />
+                <input name="zip" id="zipBox" type="text" pattern="^\d{5}(-\d{4})?$">
            </div>
 
            <div>
                 <label for="zipBox">Country</label>
-                <input name="country" id="countryBox" type="text" />
+                <input name="country" id="countryBox" type="text" value="United States" required/>
            </div>
 
            <div>
             <label for="phoneBox">Phone</label>
-            <input name="phone" id="phoneBox" type="tel" required/>
-       </div>
-              
-       <div>
-         <label for="stateBox">State</label>
-         <input name="state" id="stateBox" type="text" list="stateList" required/>
-         
-         <datalist id="stateList">
-           <option value="AL"></option>
-           <option value="AK"></option>
-           <option value="AZ"></option>
-           <option value="AR"></option>
-           <option value="CA"></option>
-           <option value="CO"></option>
-           <option value="CT"></option>
-           <option value="DE"></option>
-           <option value="FL"></option>
-           <option value="GA"></option>
-           <option value="HI"></option>
-           <option value="ID"></option>
-           <option value="IL"></option>
-           <option value="IN"></option>
-           <option value="IA"></option>
-           <option value="KS"></option>
-           <option value="KY"></option>
-           <option value="LA"></option>
-           <option value="ME"></option>
-           <option value="MD"></option>
-           <option value="MA"></option>
-           <option value="MI"></option>
-           <option value="MN"></option>
-           <option value="MS"></option>
-           <option value="MO"></option>
-           <option value="MT"></option>
-           <option value="NE"></option>
-           <option value="NV"></option>
-           <option value="NH"></option>
-           <option value="NJ"></option>
-           <option value="NM"></option>
-           <option value="NY"></option>
-           <option value="NC"></option>
-           <option value="ND"></option>
-           <option value="OH"></option>
-           <option value="OK"></option>
-           <option value="OR"></option>
-           <option value="PA"></option>
-           <option value="RI"></option>
-           <option value="SC"></option>
-           <option value="SD"></option>
-           <option value="TN"></option>
-           <option value="TX"></option>
-           <option value="UT"></option>
-           <option value="VT"></option>
-           <option value="VA"></option>
-           <option value="WA"></option>
-           <option value="WV"></option>
-           <option value="WI"></option>
-           <option value="WY"></option>
-         </datalist>
-       </div>
-            
+            <input name="phone" id="phoneBox" type="tel" pattern="^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$" required/>
+       </div> 
+        </fieldset>
+
+        <fieldset id="creditcard">
+          <legend>Credit Card (required)</legend>
+          <fieldset class="cardLabel" required>
+            <label class="cardLabel" for="amex">
+              <input id="amex" value="Amex" type="radio">
+              <img src="sb_amex.png" alt="amex">
+            </label>
+            <label class="cardLabel" for="discover">
+              <input id="discover" value="Discover" type="radio">
+              <img src="sb_discover.png" alt="discover">
+            </label>
+            <label class="cardLabel" for="master">
+              <input id="master" value="Master" type="radio">
+              <img src="sb_master.png" alt="master">
+            </label>
+            <label class="cardLabel" for="visa">
+              <input id="visa" value="Visa" type="radio">
+              <img src="sb_visa.png" alt="visa">
+            </label>
+          </fieldset>
+
+          <div>
+            <label for="cardBox">Credit Card Number</label>
+            <input name="cardNumber" id="cardBox" type="text" pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$">
+          </div>
+
+          <div>
+            <label for="cardMonth">Expiration Date</label>
+            <select id="monthList" required>
+            <option value="-">--Month--</option>
+            <option value="1">January (01)</option>
+            <option value="">February (02)</option>
+            <option value="">March (03)</option>
+            <option value="">April (04)</option>
+            <option value="">May (05)</option>
+            <option value="">June (06)</option>
+            <option value="">July (07)</option>
+            <option value="">August (08)</option>
+            <option value="">September (09)</option>
+            <option value="">October (10)</option>
+            <option value="">November (11)</option>
+            <option value="">December (12)</option>
+            <option value=""></option>
+          </select>
+          </div>
+
+          <select id="yearList">
+              <option value="1">January (01)</option>
+              <option value="1">January (01)</option>
+              <option value="1">January (01)</option>
+              <option value="1">January (01)</option>
+              <option value="1">January (01)</option>
+              <option value="1">January (01)</option>
+          </select>
         </fieldset>
 
     </form>
